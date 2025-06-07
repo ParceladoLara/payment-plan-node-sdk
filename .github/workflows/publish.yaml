@@ -18,7 +18,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Publish to GitHub Package Registry
         run: |
-          cd node
           cat package.json
           echo "Publish to GitHub Package Registry"
           export NODE_AUTH_TOKEN=${{secrets.GITHUB_TOKEN}}
