@@ -1,5 +1,5 @@
 {
-  "name": "@ParceladoLara/payment-plan-node-sdk",
+  "name": "@parcelado_lara/payment-plan-node",
   "version": "v3.0.2",
   "description": "",
   "main": "./src/index.js",
@@ -41,6 +41,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ParceladoLara/payment-plan-node-sdk.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "binary": {
     "module_name": "index",
