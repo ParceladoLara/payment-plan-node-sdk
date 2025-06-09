@@ -13,6 +13,9 @@
     "types/src/index.d.ts.map",
     "native/index.node"
   ],
+  "scripts": {
+    "install": "node-pre-gyp install"
+  },
   "engines": {
     "node": ">=20.0.0"
   },
