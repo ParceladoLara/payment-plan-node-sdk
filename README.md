@@ -66,7 +66,7 @@ Errors:
 
 ### calculateDownPaymentPlan
 Calculates a number of payment plans with down payment given a set of `DownPaymentPlanParams`.
-Returns a `PaymentPlanResponse[]` with the payment plan details, this will a plan for 1 installment up to the number of installments requested, so that you can choose the one that best fits your needs, if the `installmentAmount` of the plan is less than the `minInstallmentAmount` it will not be included in the response.
+Returns a `DownPaymentPlanResponse[]` with the payment plan details, this will a plan for 1 installment up to the number of installments requested, so that you can choose the one that best fits your needs, if the `installmentAmount` of the plan is less than the `minInstallmentAmount` it will not be included in the response.
 
 ```javascript
 import { calculateDownPaymentPlan } from '@parcelado_lara/payment-plan-node';
