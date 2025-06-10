@@ -21,7 +21,7 @@ To use the Lara Payment Plan Node.js SDK, you can import it into your project as
 
 ### calculatePlan
 Calculates a number of payment plans without down payment given a set of `PaymentPlanParams`.
-Returns a `PaymentPlanResponse[]` with the payment plan details, this will a plan for 1 installment up to the number of installments requested,so that you can choose the one that best fits your needs, if the `installmentAmount` of the plan is less than the `minInstallmentAmount` it will not be included in the response.
+Returns a `PaymentPlanResponse[]` consisting of plans from 1 installment up to the number of installments requested,so that you can choose the one that best fits your needs, if the `installmentAmount` of the plan is less than the `minInstallmentAmount` it will not be included in the response.
 
 ```javascript
 import { calculatePlan } from '@parcelado_lara/payment-plan-node';
@@ -70,6 +70,10 @@ Returns a `PaymentPlanResponse[]` with the payment plan details, this will a pla
 
 ```javascript
 import { calculateDownPaymentPlan } from '@parcelado_lara/payment-plan-node';
+
+const downPayment = 200.0;
+const minInstallmentAmount = 100.0;
+const installments = 4;
 const params = {
     maxTotalAmount: Number.MAX_VALUE,
     minInstallmentAmount: 0.0,
