@@ -17,12 +17,6 @@ jobs:
           node-version: 22
           registry-url: "https://registry.npmjs.org/"
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Remove native modules
-        run: rm -rf native
-
       - name: Publish package
         run: npm publish
         env:
