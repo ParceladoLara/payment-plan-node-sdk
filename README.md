@@ -205,12 +205,10 @@ Parameters:
 Warning:
 As of now, if `baseDate=today` `baseDate` will be considered a invalid date, but this can change in the future.
 
-## Contributing
 
-This repository is public, but the Lara Payment Plan library is private.
-To build the library, you must have access to the private repository.
-The code here is generated from the private repository and then made public.
-Pull requests are welcome, but changes will be made in the private repository and then propagated here.
+## Contributing
+This repository is and the code in it is a carbon copy of the code on [Parcelado Lara Payment Plan](https://github.com/ParceladoLara/payment-plan).
+So to contribute, you can contribute directly to the payment plan repository and the changes will be reflected here after a release.
 
 ## License
 This software is provided free of charge for personal or internal business use only.
