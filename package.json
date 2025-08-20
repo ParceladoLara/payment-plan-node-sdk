@@ -14,7 +14,8 @@
     "native/index.node"
   ],
   "scripts": {
-    "install": "node-pre-gyp install"
+    "install": "node-pre-gyp install",
+    "test": "node --test './test/*.spec.*'"
   },
   "engines": {
     "node": ">=20.0.0"
