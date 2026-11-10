@@ -8,6 +8,7 @@ This SDK, like other Lara Payment Plan SDKs, is a wrapper around the Lara Paymen
 Currently, the library is available for Linux and Windows. MacOS support is planned for the future.
 
 ## Installation
+
 To install the Lara Payment Plan Node.js SDK, you can use npm:
 
 ```bash
@@ -17,9 +18,11 @@ npm install @parcelado_lara/payment-plan-node
 The SDK needs to download the compiled Rust library, so you may need to allow the package manager to download it.
 
 ## Usage
+
 To use the Lara Payment Plan Node.js SDK, you can import it into your project as follows:
 
 ### calculatePlan
+
 Calculates a number of payment plans without down payment given a set of `PaymentPlanParams`.
 Returns a `PaymentPlanResponse[]` consisting of plans from 1 installment up to the number of installments requested,so that you can choose the one that best fits your needs, if the `installmentAmount` of the plan is less than the `minInstallmentAmount` it will not be included in the response.
 
@@ -44,6 +47,7 @@ const result = calculatePlan(params);
 ```
 
 Parameters:
+
 - `maxTotalAmount`: Maximum total amount for the plan.
 - `minInstallmentAmount`: Minimum installment amount.
 - `requestedAmount`: The amount requested for the plan.
@@ -59,12 +63,14 @@ Parameters:
 - `disbursementOnlyOnBusinessDays`: Whether disbursement is only on business days.
 
 Errors:
+
 - If `requestedAmount` is less than or equal to 0, an error will be thrown.
 - If `installments` is less than or equal to 0, an error will be thrown.
 - If the any of the dates are invalid
 - If any of the tax parameters are too unreasonable for a `Excel XIRR` calculation
 
 ### calculateDownPaymentPlan
+
 Calculates a number of payment plans with down payment given a set of `DownPaymentPlanParams`.
 Returns a `DownPaymentPlanResponse[]` with the payment plan details, this will a plan for 1 installment up to the number of installments requested, so that you can choose the one that best fits your needs, if the `installmentAmount` of the plan is less than the `minInstallmentAmount` it will not be included in the response.
 
@@ -101,7 +107,9 @@ const downPaymentPlanParams = {
 
 const result = calculateDownPaymentPlan(downPaymentPlanParams);
 ```
+
 Parameters:
+
 - `requestedAmount`: The amount requested for the down payment.
 - `minInstallmentAmount`: Minimum installment for the down payment plan.
 - `installments`: The number of installments for the down payment plan.
@@ -109,12 +117,14 @@ Parameters:
 - `params`: A `PaymentPlanParams` object containing the parameters for the payment plan(see above).
 
 Errors:
+
 - If `requestedAmount` is less than or equal to 0, an error will be thrown.
 - If `installments` is less than or equal to 0, an error will be thrown.
 - If the any of the dates are invalid
 - If any of the tax parameters are too unreasonable for a `Excel XIRR` calculation
 
 ### disbursementDateRange
+
 Calculates a start and end date for a disbursement period based on a `baseDate` and a `numberOfDays`.
 
 ```javascript
@@ -140,7 +150,9 @@ console.log(result); // [2078-02-16T03:00:00.000Z, 2078-02-22T03:00:00.000Z ]
   So the disbursement period is from 2078-02-16 to 2078-02-22.
 */
 ```
+
 Parameters:
+
 - `baseDate`: The base date from which to calculate the disbursement period.
 - `numberOfDays`: The number of days to calculate the disbursement period.
 - Returns an array where `[0]` is the start date and `[1]` is the end date of the disbursement period.
@@ -148,6 +160,7 @@ Parameters:
   - If `baseDate` is not a valid date, an error will be thrown.
 
 ### getNonBusinessDaysBetween
+
 Calculates the non-business(weekends and bank holidays) days between two dates, and returns an array of non-business days.
 
 ```javascript
@@ -172,7 +185,9 @@ console.log(result); // [2078-11-12T03:00:00.000Z, 2078-11-13T03:00:00.000Z, 207
   So the non-business days are 2078-11-12, 2078-11-13, 2078-11-15, 2078-11-19, and 2078-11-20.
 */
 ```
+
 Parameters:
+
 - `startDate`: The start date from which to calculate the non-business days.
 - `endDate`: The end date until which to calculate the non-business days.
 - Returns an array of non-business days between the two dates.
@@ -181,6 +196,7 @@ Parameters:
   - If `startDate` is after `endDate`, an error will be thrown.
 
 ### nextDisbursementDate
+
 Calculates the next disbursement date based on a `baseDate`
 
 ```javascript
@@ -196,7 +212,9 @@ console.log(result); // 2078-02-16T03:00:00.000Z
   2078-02-16 = Wednesday(valid) 1
 */
 ```
+
 Parameters:
+
 - `baseDate`: The base date from which to calculate the next disbursement date.
 - Returns the next valid disbursement date after the `baseDate`.
 - Errors:
@@ -205,12 +223,13 @@ Parameters:
 Warning:
 As of now, if `baseDate=today` `baseDate` will be considered a invalid date, but this can change in the future.
 
-
 ## Contributing
+
 This repository is and the code in it is a carbon copy of the code on [Parcelado Lara Payment Plan](https://github.com/ParceladoLara/payment-plan).
 So to contribute, you can contribute directly to the payment plan repository and the changes will be reflected here after a release.
 
 ## License
+
 This software is provided free of charge for personal or internal business use only.
 Modification, redistribution, sublicensing, or reverse engineering is not permitted.
 Copyright (c) 2025 SWEETPAY SOLUCOES FINANCEIRAS LTDA. All rights reserved.
